@@ -9,6 +9,7 @@ public class MyService extends Service {
 
     // Binder entregue aos clientes
     private final IBinder binder = new LocalBinder();
+    private int cont = 0;
 
     // Classe utilizada para o cliente Binder
     public class LocalBinder extends Binder {
@@ -28,6 +29,7 @@ public class MyService extends Service {
 
     // Um método simples que os clientes podem chamar
     public String getMessage() {
-        return "Hello from the service!";
+        cont ++;
+        return "Hello from the service! Counter: " + cont;
     }
 }
