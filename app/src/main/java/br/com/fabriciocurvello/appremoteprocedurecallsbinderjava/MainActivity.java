@@ -9,7 +9,6 @@ import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -18,11 +17,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyService mService;
-    private boolean mBound = false;
+    MyService mService;
+    boolean mBound = false;
 
-    private Button bindServiceBtn;
-    private TextView messageTv;
+    Button btnBindService;
+    TextView tvMessage;
 
     // Define callbacks para o service binding, passados para bindService()
     private ServiceConnection connection = new ServiceConnection() {
@@ -51,15 +50,15 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        bindServiceBtn.findViewById(R.id.btn_bind_service);
-        messageTv.findViewById(R.id.tv_message);
+        btnBindService = findViewById(R.id.btn_bind_service);
+        tvMessage = findViewById(R.id.tv_message);
 
-        bindServiceBtn.setOnClickListener(new View.OnClickListener() {
+        btnBindService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mBound) {
                     String message = mService.getMessage();
-                    messageTv.setText(message);
+                    tvMessage.setText(message);
                 }
             }
         });

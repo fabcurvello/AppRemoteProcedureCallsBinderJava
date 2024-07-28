@@ -2,8 +2,8 @@ package br.com.fabriciocurvello.appremoteprocedurecallsbinderjava;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
+import android.os.Binder;
 
 public class MyService extends Service {
 
